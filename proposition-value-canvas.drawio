@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2019-11-14T10:31:12.111Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0" etag="6M7GwjW1_2prCLdDgdG2" version="12.2.6" type="github" pages="1">
+<mxfile host="www.draw.io" modified="2019-11-14T10:34:30.807Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0" etag="UP-4JAODlOHkrf1CbpUY" version="12.2.6" type="github" pages="1">
   <diagram id="yJD1u6mJXy526t3j1lol" name="Page-1">
     <mxGraphModel dx="1408" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -121,7 +121,7 @@
         <mxCell id="k94eyKAQCkePa_4UFT7v-42" value="&lt;div&gt;* Pas de localisation&lt;br&gt;&lt;/div&gt;&lt;div&gt;* Imprécision de la localisation&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;labelBackgroundColor=#ffffff;fontSize=15;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="713.5" y="453.5" width="220" height="90" as="geometry"/>
         </mxCell>
-        <mxCell id="k94eyKAQCkePa_4UFT7v-43" value="&lt;div&gt;* Localisation à l&#39;estime&lt;/div&gt;&lt;div&gt;* Intégration aux services de navigation (GMaps, OsmAnd, ...)&lt;/div&gt;&lt;div&gt;* Suivi en temps reel&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;labelBackgroundColor=#ffffff;fontSize=15;fontColor=#000000;" vertex="1" parent="1">
+        <mxCell id="k94eyKAQCkePa_4UFT7v-43" value="&lt;div&gt;* Estimation de la localisation&lt;br&gt;&lt;/div&gt;&lt;div&gt;* Intégration aux services de navigation (GMaps, OsmAnd, ...)&lt;/div&gt;&lt;div&gt;* Suivi en temps reel&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;labelBackgroundColor=#ffffff;fontSize=15;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="250" y="453.5" width="243" height="90" as="geometry"/>
         </mxCell>
         <mxCell id="k94eyKAQCkePa_4UFT7v-44" value="&lt;div&gt;* Vente de boitiers&lt;/div&gt;&lt;div&gt;* Intégration dans les véhicules&lt;br&gt;&lt;/div&gt;&lt;div&gt;* Service de mise à jour des données&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;labelBackgroundColor=none;fontSize=15;fontColor=#000000;" vertex="1" parent="1">
