@@ -1,3 +1,5 @@
+import time
+
 import serial
 import sys
 import math
@@ -7,36 +9,85 @@ if len(sys.argv) != 2:
 	exit(1)
 
 
+def get_time():
+	return time.time()
+
+
+def get_speed():
+	return 8
+
+
 def compute_heading(x, y, z, declination_angle=-0.01745329, in_degree=False):
 	angle = math.atan2(y, x)
 	angle += declination_angle
 	if angle < 0:
 		angle += 2*math.pi
-	elif angle > 2*math.pi:
+	if angle > 2*math.pi:
 		angle -= 2*math.pi
 	if in_degree:
 		angle = angle * 180/math.pi
 	return angle
 
 serial_port = sys.argv[1]
-
 serial_compass = serial.Serial(serial_port, timeout=1)
+last_pos = (0, 0)
+last_point_time = get_time()
+full_distance = 0
+time_elapsed = 0
 
-while 1:
-	raw_measurement = serial_compass.readline()
+next_write = 0
 
-	# Decode binary measurement
-	measurements = raw_measurement.decode("utf8")
-	# Remove final \n
-	measurements = measurements[:-1]
-	# Split along tabs
-	measurements = measurements.split("\t")
-	# Parse measurements
-	try:
-		measurements = list(map(lambda val: float(val), measurements))
-	except:
-		continue
+try:
 
-	heading = round(compute_heading(measurements[0], measurements[1], measurements[2], in_degree=True)*100)/100
+	while 1:
+		raw_measurement = serial_compass.readline()
 
-	print("X: {} µT,\tY: {} µT,\tZ: {} µT,\t{}°".format(measurements[0], measurements[1], measurements[2],heading))
+		# Decode binary measurement
+		try :
+			measurements = raw_measurement.decode("utf8")
+		except UnicodeDecodeError:
+			continue
+		# Remove final \n
+		measurements = measurements[:-1]
+		# Split along tabs
+		measurements = measurements.split("\t")
+		# Parse measurements
+
+		if len(measurements) < 3:
+			continue
+
+		try:
+			measurements = list(map(lambda val: float(val), measurements))
+		except:
+			continue
+
+		heading = compute_heading(measurements[0], measurements[1], measurements[2])
+
+		speed = get_speed()
+
+		current_time = get_time()
+
+		deltatime = (current_time - last_point_time)
+
+		distance = speed * deltatime
+
+		current_pos = (
+			last_pos[0] + distance * math.sin(heading),
+			last_pos[1] + distance * math.cos(heading)
+		)
+
+
+		full_distance += distance
+		time_elapsed += deltatime
+		last_pos = current_pos
+		last_point_time = current_time
+
+		if next_write < time_elapsed:
+			print("{};{};{}".format(
+				current_pos[0],
+				current_pos[1],
+				speed), flush=True)
+			next_write = time_elapsed + 0.05
+
+except KeyboardInterrupt:
+	exit(0)
