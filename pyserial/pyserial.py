@@ -19,7 +19,7 @@ try:
 		except UnicodeEncodeError:
 			continue
 
-		print("{}\t{}".format(time.time(), input))
+		print("{}\t{}".format(time.time(), input), flush=True)
 
 except KeyboardInterrupt:
 	exit(0)

@@ -16,7 +16,7 @@ try:
 		speed = connection.query(obd.commands.SPEED).value
 		speed_m_s = speed.magnitude / 3.6
 
-		print("{}\t{}".format(time.time(), speed_m_s))
+		print("{}\t{}".format(time.time(), speed), flush=True)
 
 except KeyboardInterrupt:
 	exit(0)
