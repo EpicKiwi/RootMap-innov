@@ -1,0 +1,3 @@
+[submodule "route-tracer/madgwick"]
+	path = route-tracer/madgwick
+	url = git@github.com:morgil/madgwick_py.git
